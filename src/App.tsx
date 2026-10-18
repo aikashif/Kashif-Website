@@ -84,7 +84,7 @@ export default function App() {
 
         {/* Slide 01 • Profile, Slide 02 • Academia, Slide 03 • Odyssey */}
         <SlideBio 
-          onOpenPerFi={() => window.open('https://kashifhub.notion.site/Kashif-Ansari-35fe4bf0b51b803e97c9ceee60bbbead', '_blank')} 
+          onOpenPerFi={() => window.open('https://kashifhub.notion.site/Kashif-Ansari-35fe4bf0b51b803e97c9ceee60bbbead', '_blank', 'noopener,noreferrer')} 
         />
 
         {/* Slide 04 • Intellectual Focus & Slide 05 • Pedagogy */}

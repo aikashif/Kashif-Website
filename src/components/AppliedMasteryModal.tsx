@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDialog } from '../hooks/useDialog';
 import { X, FileSpreadsheet, Layers, Sparkles, CheckCircle2, ArrowRight, ExternalLink } from 'lucide-react';
 
 interface AppliedMasteryModalProps {
@@ -12,6 +13,8 @@ export const AppliedMasteryModal: React.FC<AppliedMasteryModalProps> = ({
   onClose,
   onExploreTopic 
 }) => {
+  const dialogRef = useDialog<HTMLDivElement>(isOpen, onClose);
+
   if (!isOpen) return null;
 
   const frameworks = [
@@ -56,7 +59,13 @@ export const AppliedMasteryModal: React.FC<AppliedMasteryModalProps> = ({
       />
 
       {/* Modal Surface */}
-      <div className="relative w-full max-w-2xl bg-[#FFF8F5] rounded-2xl border border-[#E2BFB2] shadow-2xl overflow-hidden z-10 animate-in zoom-in-95 duration-150 max-h-[90vh] flex flex-col justify-between">
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="applied-mastery-title"
+        className="relative w-full max-w-2xl bg-[#FFF8F5] rounded-2xl border border-[#E2BFB2] shadow-2xl overflow-hidden z-10 animate-in zoom-in-95 duration-150 max-h-[90vh] flex flex-col justify-between"
+      >
         
         {/* Header */}
         <div className="bg-[#A33900] text-white p-5 flex items-center justify-between">
@@ -65,14 +74,15 @@ export const AppliedMasteryModal: React.FC<AppliedMasteryModalProps> = ({
               <FileSpreadsheet className="w-6 h-6" />
             </div>
             <div>
-              <span className="text-[10px] font-extrabold tracking-widest uppercase text-[#FFDBCE]">
+              <span className="text-[11px] font-extrabold tracking-widest uppercase text-[#FFDBCE]">
                 PEDAGOGY IN ACTION
               </span>
-              <h3 className="text-lg font-extrabold">Tools &amp; Activities for Applied Mastery</h3>
+              <h3 id="applied-mastery-title" className="text-lg font-extrabold">Tools &amp; Activities for Applied Mastery</h3>
             </div>
           </div>
           <button 
             onClick={onClose}
+            aria-label="Close"
             className="p-1 rounded-lg text-[#FFDBCE] hover:text-white hover:bg-[#782B00] transition-colors"
           >
             <X className="w-5 h-5" />
@@ -92,7 +102,7 @@ export const AppliedMasteryModal: React.FC<AppliedMasteryModalProps> = ({
                 className="p-4 rounded-xl bg-white border border-[#E2BFB2]/60 shadow-2xs space-y-2.5"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[9px] font-extrabold tracking-wider text-[#A33900] uppercase bg-[#FFDBCE] px-2 py-0.5 rounded">
+                  <span className="text-[11px] font-extrabold tracking-wider text-[#A33900] uppercase bg-[#FFDBCE] px-2 py-0.5 rounded">
                     {f.kicker}
                   </span>
                   <span className="text-xs font-mono font-bold text-[#8E7166]">
@@ -110,7 +120,7 @@ export const AppliedMasteryModal: React.FC<AppliedMasteryModalProps> = ({
 
                 <div className="pt-2 border-t border-[#FAF2EE] space-y-1">
                   {f.outcomes.map((out, oIdx) => (
-                    <div key={oIdx} className="flex items-center gap-2 text-[11px] text-[#735733]">
+                    <div key={oIdx} className="flex items-center gap-2 text-xs text-[#735733]">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#A33900] shrink-0" />
                       <span>{out}</span>
                     </div>

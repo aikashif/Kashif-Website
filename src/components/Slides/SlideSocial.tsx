@@ -27,7 +27,7 @@ export const SlideSocial: React.FC<SlideSocialProps> = ({
       <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[#E2BFB2]/60 shadow-xs mb-10">
         <div className="flex items-center gap-2 text-[#A33900] mb-3">
           <span className="w-2 h-2 rounded-full bg-[#A33900]" />
-          <span className="text-[11px] font-extrabold tracking-widest uppercase">
+          <span className="text-xs font-extrabold tracking-widest uppercase">
             FINAL SLIDE • CONNECT DIRECTLY
           </span>
         </div>
@@ -88,7 +88,7 @@ export const SlideSocial: React.FC<SlideSocialProps> = ({
           {/* Brand & Mission Statement */}
           <div className="max-w-md">
             <div className="flex items-baseline gap-2 mb-2">
-              <span className="text-[11px] font-extrabold tracking-widest text-[#A33900] uppercase bg-[#FFDBCE] px-1.5 py-0.5 rounded">
+              <span className="text-xs font-extrabold tracking-widest text-[#A33900] uppercase bg-[#FFDBCE] px-1.5 py-0.5 rounded">
                 KASHIFHUB
               </span>
               <span className="text-base font-bold text-[#1E1B19]">
@@ -125,11 +125,11 @@ export const SlideSocial: React.FC<SlideSocialProps> = ({
         </div>
 
         {/* Imprint & Copyright */}
-        <div className="border-t border-[#E2BFB2]/30 pt-4 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#8E7166] gap-2">
+        <div className="border-t border-[#E2BFB2]/30 pt-4 flex flex-col sm:flex-row items-center justify-between text-xs text-[#8E7166] gap-2">
           <div>
-            © 2025 KASHIF ANSARI. CURATED EDITORIAL &amp; RESEARCH PORTFOLIO.
+            © <span suppressHydrationWarning>{new Date().getFullYear()}</span> KASHIF ANSARI. CURATED EDITORIAL &amp; RESEARCH PORTFOLIO.
           </div>
-          <div className="font-mono text-[10px] tracking-wider uppercase text-[#A33900] font-bold">
+          <div className="font-mono text-[11px] tracking-wider uppercase text-[#A33900] font-bold">
             PARCHMENT DECK EDITION
           </div>
         </div>

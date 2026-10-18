@@ -59,6 +59,9 @@ export interface SportsDiscipline {
 export const PROFILE_DATA = {
   name: "Kashif Ansari",
   fullName: "Mohd. Kashif Ansari",
+  // Put your photo in the public/ folder (for example public/profile.jpg)
+  // and set this to "/profile.jpg". Empty shows the "KA" monogram.
+  photo: "",
   deckView: "DECK VIEW 01",
   region: "Delhi-NCR • Global",
   headline: "Finance Faculty, O.P. Jindal Global University | Founder, PerFi | National Financial Columnist",

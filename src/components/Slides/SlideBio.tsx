@@ -26,7 +26,7 @@ export const SlideBio: React.FC<SlideBioProps> = ({ onOpenPerFi }) => {
           <div>
             {/* Slide Header */}
             <div className="flex items-center justify-between text-[#A33900] mb-4">
-              <span className="text-[11px] font-extrabold tracking-widest uppercase flex items-center gap-1.5">
+              <span className="text-xs font-extrabold tracking-widest uppercase flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A33900]" />
                 SLIDE 01 • PROFILE
               </span>
@@ -64,7 +64,7 @@ export const SlideBio: React.FC<SlideBioProps> = ({ onOpenPerFi }) => {
                   <span className="font-bold text-xs sm:text-sm text-[#1E1B19]">
                     Hansraj College, DU
                   </span>
-                  <div className="text-[11px] text-[#735733] mt-0.5">
+                  <div className="text-xs text-[#735733] mt-0.5">
                     Drafted Delhi University's 1st NEP tax curriculum
                   </div>
                 </div>
@@ -104,7 +104,7 @@ export const SlideBio: React.FC<SlideBioProps> = ({ onOpenPerFi }) => {
 
           {/* Guiding Principle Box */}
           <div className="mt-6 pt-4 border-t border-[#FAF2EE]">
-            <div className="text-[10px] font-extrabold tracking-wider text-[#A33900] uppercase mb-1">
+            <div className="text-[11px] font-extrabold tracking-wider text-[#A33900] uppercase mb-1">
               GUIDING PRINCIPLE
             </div>
             <blockquote className="text-xs italic text-[#5A4138] leading-relaxed bg-[#FFF8F5] p-3 rounded-lg border border-[#E2BFB2]/40">
@@ -118,7 +118,7 @@ export const SlideBio: React.FC<SlideBioProps> = ({ onOpenPerFi }) => {
           <div>
             {/* Slide Header */}
             <div className="flex items-center justify-between text-[#A33900] mb-4">
-              <span className="text-[11px] font-extrabold tracking-widest uppercase flex items-center gap-1.5">
+              <span className="text-xs font-extrabold tracking-widest uppercase flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A33900]" />
                 SLIDE 02 • ACADEMIA
               </span>
@@ -144,7 +144,7 @@ export const SlideBio: React.FC<SlideBioProps> = ({ onOpenPerFi }) => {
                       {item.institution}
                     </div>
                     {item.highlight && (
-                      <div className="text-[10px] text-[#A33900] font-semibold mt-0.5">
+                      <div className="text-[11px] text-[#A33900] font-semibold mt-0.5">
                         {item.highlight}
                       </div>
                     )}
@@ -158,7 +158,7 @@ export const SlideBio: React.FC<SlideBioProps> = ({ onOpenPerFi }) => {
           </div>
 
           {/* Verification Footer */}
-          <div className="mt-6 pt-4 border-t border-[#FAF2EE] flex items-center gap-2 text-[11px] font-semibold text-[#735733]">
+          <div className="mt-6 pt-4 border-t border-[#FAF2EE] flex items-center gap-2 text-xs font-semibold text-[#735733]">
             <CheckCircle className="w-4 h-4 text-[#A33900] shrink-0" />
             <span>{PROFILE_DATA.educationFooter}</span>
           </div>
@@ -169,7 +169,7 @@ export const SlideBio: React.FC<SlideBioProps> = ({ onOpenPerFi }) => {
           <div>
             {/* Slide Header */}
             <div className="flex items-center justify-between text-[#FFDBCE] mb-4">
-              <span className="text-[11px] font-extrabold tracking-widest uppercase flex items-center gap-1.5">
+              <span className="text-xs font-extrabold tracking-widest uppercase flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FFDBCE]" />
                 SLIDE 03 • ODYSSEY
               </span>

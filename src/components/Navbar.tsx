@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleLinkClick('hero')}
               className="text-left group flex items-baseline gap-2 focus:outline-none"
             >
-              <span className="text-[11px] font-extrabold tracking-widest text-[#A33900] uppercase bg-[#FFDBCE] px-1.5 py-0.5 rounded">
+              <span className="text-xs font-extrabold tracking-widest text-[#A33900] uppercase bg-[#FFDBCE] px-1.5 py-0.5 rounded">
                 KASHIFHUB
               </span>
               <span className="text-base font-bold tracking-tight text-[#1E1B19] group-hover:text-[#A33900] transition-colors whitespace-nowrap">
@@ -76,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <GraduationCap className="w-3.5 h-3.5" />
               <span>FACULTY & FELLOW</span>
-              <span className="text-[10px] bg-[#A33900] text-white px-1 py-0.2 rounded font-mono">JGU</span>
+              <span className="text-[11px] bg-[#A33900] text-white px-1 py-0.2 rounded font-mono">JGU</span>
             </button>
           </div>
 

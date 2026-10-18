@@ -38,11 +38,11 @@ export const SlideArticles: React.FC<SlideArticlesProps> = ({ onSelectArticle })
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#FAF2EE]">
           <div className="flex items-center gap-2 text-[#A33900]">
             <span className="w-2 h-2 rounded-full bg-[#A33900]" />
-            <span className="text-[11px] font-extrabold tracking-widest uppercase">
+            <span className="text-xs font-extrabold tracking-widest uppercase">
               SLIDE 06 • EDITORIAL OP-EDS
             </span>
           </div>
-          <span className="self-start sm:self-auto text-[10px] font-extrabold tracking-widest uppercase px-2 py-0.5 rounded bg-[#FAF2EE] text-[#735733] border border-[#E2BFB2]/40">
+          <span className="self-start sm:self-auto text-[11px] font-extrabold tracking-widest uppercase px-2 py-0.5 rounded bg-[#FAF2EE] text-[#735733] border border-[#E2BFB2]/40">
             NATIONAL PRINT PRESS
           </span>
         </div>
@@ -99,7 +99,7 @@ export const SlideArticles: React.FC<SlideArticlesProps> = ({ onSelectArticle })
             >
               <span>{tab.label}</span>
               {tab.count !== undefined && (
-                <span className={`ml-1.5 text-[10px] ${activeFilter === tab.id ? 'text-[#FFDBCE]' : 'text-[#8E7166]'}`}>
+                <span className={`ml-1.5 text-[11px] ${activeFilter === tab.id ? 'text-[#FFDBCE]' : 'text-[#8E7166]'}`}>
                   {tab.count}
                 </span>
               )}
@@ -123,7 +123,7 @@ export const SlideArticles: React.FC<SlideArticlesProps> = ({ onSelectArticle })
                   {/* Publication & Tag Bar */}
                   <div className="flex items-center justify-between gap-1 mb-2.5">
                     <span 
-                      className={`text-[9px] font-extrabold tracking-wider px-1.5 py-0.5 rounded uppercase ${
+                      className={`text-[11px] font-extrabold tracking-wider px-1.5 py-0.5 rounded uppercase ${
                         isET 
                           ? 'bg-[#CC4900] text-white' 
                           : isBhaskar
@@ -134,7 +134,7 @@ export const SlideArticles: React.FC<SlideArticlesProps> = ({ onSelectArticle })
                       {article.publication}
                     </span>
 
-                    <span className="text-[10px] font-semibold text-[#8E7166] truncate max-w-[120px]">
+                    <span className="text-[11px] font-semibold text-[#8E7166] truncate max-w-[120px]">
                       {article.tag}
                     </span>
                   </div>
@@ -145,14 +145,14 @@ export const SlideArticles: React.FC<SlideArticlesProps> = ({ onSelectArticle })
                   </h3>
 
                   {/* Summary */}
-                  <p className="text-[11px] text-[#5A4138] mt-2 line-clamp-3 leading-relaxed">
+                  <p className="text-xs text-[#5A4138] mt-2 line-clamp-3 leading-relaxed">
                     {article.summary}
                   </p>
                 </div>
 
                 {/* Bottom Action Trigger */}
                 <div className="pt-3 mt-3 border-t border-[#FAF2EE] flex items-center justify-between text-xs">
-                  <span className="font-bold text-[#A33900] group-hover:underline flex items-center gap-1 text-[11px]">
+                  <span className="font-bold text-[#A33900] group-hover:underline flex items-center gap-1 text-xs">
                     {article.publication === 'ET WEALTH' ? 'Read Edition' : 'Read Op-ed'}
                   </span>
                   <ExternalLink className="w-3.5 h-3.5 text-[#8E7166] group-hover:text-[#A33900] transition-colors" />

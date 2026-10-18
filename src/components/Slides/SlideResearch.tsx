@@ -31,7 +31,7 @@ export const SlideResearch: React.FC<SlideResearchProps> = ({
           <div>
             {/* Slide Header */}
             <div className="flex items-center justify-between text-[#A33900] mb-2">
-              <span className="text-[11px] font-extrabold tracking-widest uppercase flex items-center gap-1.5">
+              <span className="text-xs font-extrabold tracking-widest uppercase flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A33900]" />
                 SLIDE 04 • INTELLECTUAL FOCUS
               </span>
@@ -54,7 +54,7 @@ export const SlideResearch: React.FC<SlideResearchProps> = ({
                   className="p-3.5 rounded-xl bg-[#FAF2EE] border border-[#E2BFB2]/30 hover:border-[#A33900]/60 hover:bg-[#FFDBCE]/20 transition-all cursor-pointer group flex flex-col justify-between min-h-[110px]"
                 >
                   <div>
-                    <span className="text-[9px] font-extrabold tracking-wider text-[#A33900] uppercase block mb-1">
+                    <span className="text-[11px] font-extrabold tracking-wider text-[#A33900] uppercase block mb-1">
                       {item.kicker}
                     </span>
                     <h3 className="text-xs sm:text-[13px] font-extrabold text-[#1E1B19] group-hover:text-[#A33900] transition-colors leading-snug">
@@ -62,7 +62,7 @@ export const SlideResearch: React.FC<SlideResearchProps> = ({
                     </h3>
                   </div>
 
-                  <p className="text-[11px] text-[#5A4138] leading-tight mt-2">
+                  <p className="text-xs text-[#5A4138] leading-tight mt-2">
                     {item.description}
                   </p>
                 </div>
@@ -70,7 +70,7 @@ export const SlideResearch: React.FC<SlideResearchProps> = ({
             </div>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-[#FAF2EE] flex items-center justify-between text-[11px] text-[#735733]">
+          <div className="mt-4 pt-3 border-t border-[#FAF2EE] flex items-center justify-between text-xs text-[#735733]">
             <span>Quantitative &amp; Statutory Architecture</span>
             <span className="font-semibold text-[#A33900]">Click any area to explore focus</span>
           </div>
@@ -81,7 +81,7 @@ export const SlideResearch: React.FC<SlideResearchProps> = ({
           <div>
             {/* Slide Header */}
             <div className="flex items-center justify-between text-[#A33900] mb-2">
-              <span className="text-[11px] font-extrabold tracking-widest uppercase flex items-center gap-1.5">
+              <span className="text-xs font-extrabold tracking-widest uppercase flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A33900]" />
                 SLIDE 05 • PEDAGOGY
               </span>
@@ -96,9 +96,10 @@ export const SlideResearch: React.FC<SlideResearchProps> = ({
             </p>
 
             {/* Primary Callout: Tools & Activities for Applied Mastery */}
-            <div 
+            <button 
+              type="button"
               onClick={onOpenAppliedMastery}
-              className="p-4 rounded-xl bg-[#FAF2EE] border border-[#A33900]/30 hover:border-[#A33900] transition-all cursor-pointer group flex items-center justify-between mb-4 shadow-2xs"
+              className="w-full text-left p-4 rounded-xl bg-[#FAF2EE] border border-[#A33900]/30 hover:border-[#A33900] transition-all cursor-pointer group flex items-center justify-between mb-4 shadow-2xs"
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[#A33900] text-white flex items-center justify-center shrink-0">
@@ -108,13 +109,13 @@ export const SlideResearch: React.FC<SlideResearchProps> = ({
                   <h3 className="text-sm font-extrabold text-[#1E1B19] group-hover:text-[#A33900] transition-colors">
                     Tools &amp; Activities for Applied Mastery
                   </h3>
-                  <p className="text-[11px] text-[#5A4138]">
+                  <p className="text-xs text-[#5A4138]">
                     Interactive simulators, spreadsheet telemetry &amp; live casebooks
                   </p>
                 </div>
               </div>
               <ArrowRight className="w-4 h-4 text-[#A33900] group-hover:translate-x-1 transition-transform shrink-0" />
-            </div>
+            </button>
 
             {/* Framework Badges */}
             <div className="flex flex-wrap gap-2 mb-4">
