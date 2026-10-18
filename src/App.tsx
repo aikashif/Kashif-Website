@@ -77,39 +77,39 @@ export default function App() {
         onOpenAcademicModal={() => setIsAcademicModalOpen(true)}
       />
 
-      {/* Main Presentation Deck Viewport */}
+      {/* Main content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 sm:space-y-4">
         {/* Hero Section & Global Dispatch */}
         <HeroHeader onExploreSection={handleNavigate} />
 
-        {/* Slide 01 • Profile, Slide 02 • Academia, Slide 03 • Odyssey */}
+        {/* Profile, Academia, Odyssey */}
         <SlideBio 
-          onOpenPerFi={() => window.open('https://kashifhub.notion.site/Kashif-Ansari-35fe4bf0b51b803e97c9ceee60bbbead', '_blank')} 
+          onOpenPerFi={() => window.open('https://kashifhub.notion.site/Kashif-Ansari-35fe4bf0b51b803e97c9ceee60bbbead', '_blank', 'noopener,noreferrer')} 
         />
 
-        {/* Slide 04 • Intellectual Focus & Slide 05 • Pedagogy */}
+        {/* Intellectual Focus & Pedagogy */}
         <SlideResearch 
           onSelectTopic={(topic) => handleNavigate('articles')}
           onOpenAppliedMastery={() => setIsAppliedMasteryOpen(true)}
         />
 
-        {/* Slide 06 • Editorial Op-Eds (Newspaper Articles) */}
+        {/* Editorial Op-Eds (Newspaper Articles) */}
         <SlideArticles 
           onSelectArticle={(article) => setSelectedDrawerItem({ type: 'article', data: article })}
         />
 
-        {/* Slide 07A • Broadcasts & Slide 07B • Press Quotes */}
+        {/* Broadcasts & Press Quotes */}
         <SlideMedia
           onSelectPodcast={(podcast) => setSelectedDrawerItem({ type: 'podcast', data: podcast })}
           onSelectQuote={(quote) => setSelectedDrawerItem({ type: 'press', data: quote })}
         />
 
-        {/* Slide 08 • Athletics & Recreation (Sports & Active Life) */}
+        {/* Athletics & Recreation (Sports & Active Life) */}
         <SlideSports 
           onOpenChessModal={() => setIsChessModalOpen(true)}
         />
 
-        {/* Final Slide • Connect Directly & Editorial Footer */}
+        {/* Contact form, social links & Editorial Footer */}
         <SlideSocial
           onNavigate={handleNavigate}
           onOpenChessModal={() => setIsChessModalOpen(true)}

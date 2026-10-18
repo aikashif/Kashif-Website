@@ -17,6 +17,7 @@ import {
   Check
 } from 'lucide-react';
 import { Article, PodcastEpisode, PressQuote } from '../data/portfolioData';
+import { copyText, useDialog } from '../hooks/useDialog';
 
 type DrawerItem = 
   | { type: 'article'; data: Article }
@@ -43,20 +44,7 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
     setIsExpanded(false);
   }, [item]);
 
-  // Handle ESC key to close
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    if (item) {
-      window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    }
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
-    };
-  }, [item, onClose]);
+  const dialogRef = useDialog<HTMLDivElement>(item !== null, onClose);
 
   if (!item) return null;
 
@@ -68,8 +56,8 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
   const youtubeId = isPodcast ? item.data.youtubeId : undefined;
   const titleText = isArticle ? item.data.title : isPodcast ? item.data.title : item.data.headline;
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(item.data.url);
+  const handleCopyLink = async () => {
+    if (!(await copyText(item.data.url))) return;
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 2000);
   };
@@ -84,6 +72,10 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
 
       {/* Drawer Surface */}
       <div 
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={titleText}
         className={`relative bg-[#FFF8F5] border-l border-[#E2BFB2] h-full shadow-2xl flex flex-col justify-between overflow-hidden z-10 transition-all duration-300 ease-in-out ${
           isExpanded ? 'w-full lg:w-4/5 xl:w-3/4' : 'w-full max-w-2xl'
         }`}
@@ -91,7 +83,7 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
         {/* Drawer Sticky Header */}
         <div className="sticky top-0 bg-[#FFF8F5]/95 backdrop-blur-md px-5 sm:px-6 py-4 border-b border-[#E2BFB2]/60 flex items-center justify-between z-20">
           <div className="flex items-center gap-2 min-w-0">
-            <span className="text-[10px] font-extrabold tracking-widest uppercase bg-[#FFDBCE] text-[#A33900] px-2 py-0.5 rounded shrink-0">
+            <span className="text-[11px] font-extrabold tracking-widest uppercase bg-[#FFDBCE] text-[#A33900] px-2 py-0.5 rounded shrink-0">
               {isArticle ? 'EDITORIAL OP-ED' : isPodcast ? 'PODCAST DIALOGUE' : 'MEDIA CITATION'}
             </span>
             <span className="text-xs font-bold text-[#735733] truncate">
@@ -105,6 +97,7 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
               onClick={handleCopyLink}
               className="p-1.5 text-[#5A4138] hover:text-[#A33900] hover:bg-[#FAF2EE] rounded-lg transition-colors"
               title="Copy original link"
+              aria-label="Copy original link"
             >
               {copiedLink ? <Check className="w-4 h-4 text-emerald-600" /> : <Share2 className="w-4 h-4" />}
             </button>
@@ -114,6 +107,7 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
               onClick={() => setIsExpanded(!isExpanded)}
               className="p-1.5 text-[#5A4138] hover:text-[#A33900] hover:bg-[#FAF2EE] rounded-lg transition-colors hidden sm:block"
               title={isExpanded ? "Collapse width" : "Expand width"}
+              aria-label={isExpanded ? "Collapse width" : "Expand width"}
             >
               {isExpanded ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
             </button>
@@ -163,7 +157,7 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
             href={item.data.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11px] font-bold text-[#A33900] hover:underline flex items-center gap-1"
+            className="text-xs font-bold text-[#A33900] hover:underline flex items-center gap-1"
           >
             <span>Direct Link</span>
             <ExternalLink className="w-3 h-3" />
@@ -180,7 +174,7 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
               {youtubeId && (
                 <div className="rounded-2xl overflow-hidden border border-[#E2BFB2] bg-black shadow-md aspect-video w-full">
                   <iframe
-                    src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0`}
+                    src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0`}
                     title={titleText}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -195,6 +189,8 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
                   <iframe
                     src={embedUrl}
                     title={titleText}
+                    sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                    referrerPolicy="strict-origin-when-cross-origin"
                     className="w-full h-full border-0"
                   />
                 </div>
@@ -273,9 +269,11 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
 
               {/* YouTube Thumbnail Preview if podcast */}
               {isPodcast && item.data.youtubeId && (
-                <div 
+                <button
+                  type="button"
                   onClick={() => setActiveTab('embed')}
-                  className="relative rounded-2xl overflow-hidden border border-[#E2BFB2] group cursor-pointer shadow-xs"
+                  aria-label={`Play ${item.data.title}`}
+                  className="relative block w-full text-left rounded-2xl overflow-hidden border border-[#E2BFB2] group cursor-pointer shadow-xs"
                 >
                   <img 
                     src={`https://img.youtube.com/vi/${item.data.youtubeId}/hqdefault.jpg`} 
@@ -287,15 +285,15 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
                       <Play className="w-6 h-6 ml-1 fill-current" />
                     </div>
                   </div>
-                  <div className="absolute bottom-3 left-3 bg-black/80 text-white text-[10px] font-bold px-2.5 py-1 rounded backdrop-blur-xs">
+                  <div className="absolute bottom-3 left-3 bg-black/80 text-white text-[11px] font-bold px-2.5 py-1 rounded backdrop-blur-xs">
                     Click to Play Inside Browser
                   </div>
-                </div>
+                </button>
               )}
 
               {/* Executive Summary Card */}
               <div className="p-4 sm:p-5 rounded-xl bg-white border border-[#E2BFB2]/60 shadow-2xs space-y-2">
-                <span className="text-[10px] font-extrabold tracking-wider text-[#A33900] uppercase block">
+                <span className="text-[11px] font-extrabold tracking-wider text-[#A33900] uppercase block">
                   EXECUTIVE SUMMARY &amp; THESIS
                 </span>
                 <p className="text-xs sm:text-sm text-[#5A4138] leading-relaxed">
@@ -342,13 +340,13 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
               {isArticle && item.data.quote && (
                 <div className="p-4 sm:p-5 rounded-xl bg-[#FAF2EE] border-l-4 border-[#A33900] relative">
                   <Quote className="w-6 h-6 text-[#A33900]/25 absolute top-3 right-3" />
-                  <div className="text-[10px] font-extrabold tracking-wider text-[#A33900] uppercase mb-1">
+                  <div className="text-[11px] font-extrabold tracking-wider text-[#A33900] uppercase mb-1">
                     FROM THE EDITORIAL ESSAY
                   </div>
                   <blockquote className="text-xs sm:text-[13px] italic font-medium text-[#1E1B19] leading-relaxed">
                     "{item.data.quote}"
                   </blockquote>
-                  <div className="text-[11px] font-bold text-[#735733] mt-2">
+                  <div className="text-xs font-bold text-[#735733] mt-2">
                     — Prof. Mohd. Kashif Ansari, {item.data.publication}
                   </div>
                 </div>
@@ -358,7 +356,7 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
               {isPodcast && (
                 <div className="space-y-4">
                   <div className="p-4 rounded-xl bg-[#FAF2EE] border-l-4 border-[#A33900] space-y-1">
-                    <span className="text-[10px] font-extrabold tracking-wider text-[#A33900] uppercase block">
+                    <span className="text-[11px] font-extrabold tracking-wider text-[#A33900] uppercase block">
                       KEY TAKEAWAY QUOTE
                     </span>
                     <blockquote className="text-xs sm:text-[13px] italic font-medium text-[#1E1B19] leading-relaxed">
@@ -394,7 +392,7 @@ export const PreviewDrawer: React.FC<PreviewDrawerProps> = ({ item, onClose }) =
               {isPress && (
                 <div className="space-y-4">
                   <div className="p-4 rounded-xl bg-white border border-[#E2BFB2]/60 shadow-2xs space-y-2">
-                    <span className="text-[10px] font-extrabold tracking-wider text-[#A33900] uppercase block">
+                    <span className="text-[11px] font-extrabold tracking-wider text-[#A33900] uppercase block">
                       EDITORIAL CONTEXT &amp; SIGNIFICANCE
                     </span>
                     <p className="text-xs sm:text-sm text-[#5A4138] leading-relaxed">

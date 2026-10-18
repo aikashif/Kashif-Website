@@ -59,7 +59,9 @@ export interface SportsDiscipline {
 export const PROFILE_DATA = {
   name: "Kashif Ansari",
   fullName: "Mohd. Kashif Ansari",
-  deckView: "DECK VIEW 01",
+  // Put your photo in the public/ folder (for example public/profile.jpg)
+  // and set this to "/profile.jpg". Empty shows the "KA" monogram.
+  photo: "/profile.jpg",
   region: "Delhi-NCR • Global",
   headline: "Finance Faculty, O.P. Jindal Global University | Founder, PerFi | National Financial Columnist",
   dispatch: "Welcome to this curated intellectual archive. Here you will find my academic research at O.P. Jindal Global University, national financial commentary across Mint and The Economic Times, long-form podcast dialogues on sovereign credit and fintech architectures, and verified physical conditioning regimens. Explore each dossier interactively below.",
@@ -524,6 +526,9 @@ export const SPORTS_DATA: SportsDiscipline[] = [
   }
 ];
 
+// The one public email address used across the site.
+export const CONTACT_EMAIL = "mdk.ansari@jgu.edu.in";
+
 export const SOCIAL_OUTPOSTS = [
   {
     name: "PerFi Hub",
@@ -541,16 +546,23 @@ export const SOCIAL_OUTPOSTS = [
   },
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/kashif-ansari-05244919/",
+    url: "https://www.linkedin.com/in/kashifhrc/",
     icon: "linkedin",
     badge: "Academic Network",
     isPrimary: false
   },
   {
-    name: "Twitter / X",
-    url: "https://twitter.com/kashif_ansari",
-    icon: "twitter",
+    name: "X",
+    url: "https://x.com/perfi_x",
+    icon: "x",
     badge: "Economic Commentary",
+    isPrimary: false
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/profkashifansari/",
+    icon: "instagram",
+    badge: "PerFi Reels",
     isPrimary: false
   },
   {

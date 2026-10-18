@@ -23,16 +23,16 @@ export const SlideMedia: React.FC<SlideMediaProps> = ({
     <section id="media" className="py-5">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
         
-        {/* SLIDE 07A • BROADCASTS (Link of my podcasts) */}
+        {/* BROADCASTS (Link of my podcasts) */}
         <div className="bg-white rounded-2xl p-6 border border-[#E2BFB2]/60 shadow-xs flex flex-col justify-between">
           <div>
             {/* Header */}
             <div className="flex items-center justify-between text-[#A33900] mb-3">
-              <span className="text-[11px] font-extrabold tracking-widest uppercase flex items-center gap-1.5">
+              <span className="text-xs font-extrabold tracking-widest uppercase flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A33900]" />
-                SLIDE 07A • BROADCASTS
+                BROADCASTS
               </span>
-              <div className="flex items-center gap-1 text-[11px] font-bold text-[#A33900]">
+              <div className="flex items-center gap-1 text-xs font-bold text-[#A33900]">
                 <Tv className="w-3.5 h-3.5" />
                 <span>Embedded Player Available</span>
               </div>
@@ -65,7 +65,7 @@ export const SlideMedia: React.FC<SlideMediaProps> = ({
                           {pod.title}
                         </h3>
                       </div>
-                      <p className="text-[11px] text-[#5A4138] truncate mt-0.5">
+                      <p className="text-xs text-[#5A4138] truncate mt-0.5">
                         {pod.summary}
                       </p>
                     </div>
@@ -73,10 +73,10 @@ export const SlideMedia: React.FC<SlideMediaProps> = ({
 
                   {/* View Count Badge & Interactive Watch Indicator */}
                   <div className="shrink-0 flex flex-col items-end gap-1">
-                    <span className="px-2 py-0.5 text-[10px] font-extrabold rounded-md bg-[#A33900] text-white whitespace-nowrap">
+                    <span className="px-2 py-0.5 text-[11px] font-extrabold rounded-md bg-[#A33900] text-white whitespace-nowrap">
                       {pod.metric}
                     </span>
-                    <span className="text-[10px] font-semibold text-[#8E7166] group-hover:text-[#A33900] flex items-center gap-0.5">
+                    <span className="text-[11px] font-semibold text-[#8E7166] group-hover:text-[#A33900] flex items-center gap-0.5">
                       <span>Watch</span>
                       <ArrowRight className="w-2.5 h-2.5 group-hover:translate-x-0.5 transition-transform" />
                     </span>
@@ -86,20 +86,20 @@ export const SlideMedia: React.FC<SlideMediaProps> = ({
             </div>
           </div>
 
-          <div className="mt-5 pt-3 border-t border-[#FAF2EE] flex items-center justify-between text-[11px] text-[#735733]">
+          <div className="mt-5 pt-3 border-t border-[#FAF2EE] flex items-center justify-between text-xs text-[#735733]">
             <span>Verified YouTube &amp; Audio Broadcasts</span>
             <span className="font-semibold text-[#A33900]">Click any dialogue to stream inside browser</span>
           </div>
         </div>
 
-        {/* SLIDE 07B • PRESS QUOTES (Media interviews / expert opinion) */}
+        {/* PRESS QUOTES (Media interviews / expert opinion) */}
         <div className="bg-white rounded-2xl p-6 border border-[#E2BFB2]/60 shadow-xs flex flex-col justify-between">
           <div>
             {/* Header */}
             <div className="flex items-center justify-between text-[#A33900] mb-3">
-              <span className="text-[11px] font-extrabold tracking-widest uppercase flex items-center gap-1.5">
+              <span className="text-xs font-extrabold tracking-widest uppercase flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A33900]" />
-                SLIDE 07B • PRESS QUOTES
+                PRESS QUOTES
               </span>
               <MessageSquare className="w-4 h-4 text-[#A33900]" />
             </div>
@@ -128,7 +128,7 @@ export const SlideMedia: React.FC<SlideMediaProps> = ({
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       {/* Code Badge */}
-                      <span className={`w-11 h-9 rounded-lg flex items-center justify-center font-extrabold text-[11px] shrink-0 tracking-wider ${
+                      <span className={`w-11 h-9 rounded-lg flex items-center justify-center font-extrabold text-xs shrink-0 tracking-wider ${
                         isSpecial
                           ? 'bg-[#A33900] text-white'
                           : 'bg-[#FAF2EE] text-[#735733] border border-[#E2BFB2]/60'
@@ -142,7 +142,7 @@ export const SlideMedia: React.FC<SlideMediaProps> = ({
                             {quote.headline}
                           </h3>
                         </div>
-                        <p className="text-[11px] text-[#5A4138] truncate mt-0.5">
+                        <p className="text-xs text-[#5A4138] truncate mt-0.5">
                           {quote.publication} · {quote.topic}
                         </p>
                       </div>
@@ -162,7 +162,7 @@ export const SlideMedia: React.FC<SlideMediaProps> = ({
             </div>
           </div>
 
-          <div className="mt-5 pt-3 border-t border-[#FAF2EE] flex items-center justify-between text-[11px] text-[#735733]">
+          <div className="mt-5 pt-3 border-t border-[#FAF2EE] flex items-center justify-between text-xs text-[#735733]">
             <span>National Television &amp; Financial Press</span>
             <span className="font-semibold text-[#A33900]">Click to view editorial context &amp; preview</span>
           </div>

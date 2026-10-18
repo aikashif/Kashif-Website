@@ -3,12 +3,20 @@ import {
   ExternalLink, 
   Youtube, 
   Linkedin, 
-  Twitter, 
+  Instagram, 
   Bookmark, 
   Swords,
   GraduationCap
 } from 'lucide-react';
 import { SOCIAL_OUTPOSTS } from '../../data/portfolioData';
+import { ContactForm } from '../ContactForm';
+
+// X logo. Lucide only has the old Twitter bird.
+const XLogo: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 interface SlideSocialProps {
   onNavigate: (sectionId: string) => void;
@@ -23,12 +31,14 @@ export const SlideSocial: React.FC<SlideSocialProps> = ({
 }) => {
   return (
     <section id="contact" className="pt-5 pb-12">
-      {/* FINAL SLIDE • CONNECT DIRECTLY */}
+      <ContactForm />
+
+      {/* CONNECT DIRECTLY */}
       <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[#E2BFB2]/60 shadow-xs mb-10">
         <div className="flex items-center gap-2 text-[#A33900] mb-3">
           <span className="w-2 h-2 rounded-full bg-[#A33900]" />
-          <span className="text-[11px] font-extrabold tracking-widest uppercase">
-            FINAL SLIDE • CONNECT DIRECTLY
+          <span className="text-xs font-extrabold tracking-widest uppercase">
+            CONNECT DIRECTLY
           </span>
         </div>
 
@@ -69,7 +79,8 @@ export const SlideSocial: React.FC<SlideSocialProps> = ({
                   {item.icon === 'bookmark' && <Bookmark className="w-3.5 h-3.5 fill-current" />}
                   {item.icon === 'youtube' && <Youtube className="w-3.5 h-3.5 text-red-600" />}
                   {item.icon === 'linkedin' && <Linkedin className="w-3.5 h-3.5 text-blue-700" />}
-                  {item.icon === 'twitter' && <Twitter className="w-3.5 h-3.5" />}
+                  {item.icon === 'x' && <XLogo className="w-3.5 h-3.5" />}
+                  {item.icon === 'instagram' && <Instagram className="w-3.5 h-3.5 text-pink-600" />}
                   {item.icon === 'chess' && <Swords className="w-3.5 h-3.5 text-[#A33900]" />}
 
                   <span>{item.name}</span>
@@ -88,7 +99,7 @@ export const SlideSocial: React.FC<SlideSocialProps> = ({
           {/* Brand & Mission Statement */}
           <div className="max-w-md">
             <div className="flex items-baseline gap-2 mb-2">
-              <span className="text-[11px] font-extrabold tracking-widest text-[#A33900] uppercase bg-[#FFDBCE] px-1.5 py-0.5 rounded">
+              <span className="text-xs font-extrabold tracking-widest text-[#A33900] uppercase bg-[#FFDBCE] px-1.5 py-0.5 rounded">
                 KASHIFHUB
               </span>
               <span className="text-base font-bold text-[#1E1B19]">
@@ -125,12 +136,9 @@ export const SlideSocial: React.FC<SlideSocialProps> = ({
         </div>
 
         {/* Imprint & Copyright */}
-        <div className="border-t border-[#E2BFB2]/30 pt-4 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#8E7166] gap-2">
+        <div className="border-t border-[#E2BFB2]/30 pt-4 flex flex-col sm:flex-row items-center justify-between text-xs text-[#8E7166] gap-2">
           <div>
-            © 2025 KASHIF ANSARI. CURATED EDITORIAL &amp; RESEARCH PORTFOLIO.
-          </div>
-          <div className="font-mono text-[10px] tracking-wider uppercase text-[#A33900] font-bold">
-            PARCHMENT DECK EDITION
+            © <span suppressHydrationWarning>{new Date().getFullYear()}</span> KASHIF ANSARI. CURATED EDITORIAL &amp; RESEARCH PORTFOLIO.
           </div>
         </div>
       </footer>
