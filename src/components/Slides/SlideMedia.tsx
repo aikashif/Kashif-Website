@@ -23,14 +23,14 @@ export const SlideMedia: React.FC<SlideMediaProps> = ({
     <section id="media" className="py-5">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
         
-        {/* SLIDE 07A • BROADCASTS (Link of my podcasts) */}
+        {/* BROADCASTS (Link of my podcasts) */}
         <div className="bg-white rounded-2xl p-6 border border-[#E2BFB2]/60 shadow-xs flex flex-col justify-between">
           <div>
             {/* Header */}
             <div className="flex items-center justify-between text-[#A33900] mb-3">
               <span className="text-xs font-extrabold tracking-widest uppercase flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A33900]" />
-                SLIDE 07A • BROADCASTS
+                BROADCASTS
               </span>
               <div className="flex items-center gap-1 text-xs font-bold text-[#A33900]">
                 <Tv className="w-3.5 h-3.5" />
@@ -92,14 +92,14 @@ export const SlideMedia: React.FC<SlideMediaProps> = ({
           </div>
         </div>
 
-        {/* SLIDE 07B • PRESS QUOTES (Media interviews / expert opinion) */}
+        {/* PRESS QUOTES (Media interviews / expert opinion) */}
         <div className="bg-white rounded-2xl p-6 border border-[#E2BFB2]/60 shadow-xs flex flex-col justify-between">
           <div>
             {/* Header */}
             <div className="flex items-center justify-between text-[#A33900] mb-3">
               <span className="text-xs font-extrabold tracking-widest uppercase flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A33900]" />
-                SLIDE 07B • PRESS QUOTES
+                PRESS QUOTES
               </span>
               <MessageSquare className="w-4 h-4 text-[#A33900]" />
             </div>

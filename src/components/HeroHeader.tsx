@@ -51,9 +51,6 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onExploreSection }) => {
           {/* Identity & Faculty Position */}
           <div className="space-y-1.5 text-center sm:text-left">
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-              <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-extrabold tracking-wider uppercase bg-[#FFDBCE] text-[#A33900]">
-                {PROFILE_DATA.deckView}
-              </span>
               <span className="text-xs font-semibold text-[#735733] flex items-center gap-1">
                 <span>{PROFILE_DATA.region}</span>
               </span>

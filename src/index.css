@@ -18,6 +18,11 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Keep section tops clear of the sticky navbar when jumping to them */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
 }
 
 /* Custom scrollbars matching terracotta aesthetic */

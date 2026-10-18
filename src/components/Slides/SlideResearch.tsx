@@ -26,14 +26,14 @@ export const SlideResearch: React.FC<SlideResearchProps> = ({
     <section id="research" className="py-5">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
         
-        {/* SLIDE 04 • INTELLECTUAL FOCUS (Research Interests) */}
+        {/* INTELLECTUAL FOCUS (Research Interests) */}
         <div className="lg:col-span-7 bg-white rounded-2xl p-6 border border-[#E2BFB2]/60 flex flex-col justify-between shadow-xs">
           <div>
             {/* Slide Header */}
             <div className="flex items-center justify-between text-[#A33900] mb-2">
               <span className="text-xs font-extrabold tracking-widest uppercase flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A33900]" />
-                SLIDE 04 • INTELLECTUAL FOCUS
+                INTELLECTUAL FOCUS
               </span>
               <Compass className="w-4 h-4 text-[#A33900]" />
             </div>
@@ -76,14 +76,14 @@ export const SlideResearch: React.FC<SlideResearchProps> = ({
           </div>
         </div>
 
-        {/* SLIDE 05 • PEDAGOGY (Pedagogical Frameworks) */}
+        {/* PEDAGOGY (Pedagogical Frameworks) */}
         <div className="lg:col-span-5 bg-white rounded-2xl p-6 border border-[#E2BFB2]/60 flex flex-col justify-between shadow-xs">
           <div>
             {/* Slide Header */}
             <div className="flex items-center justify-between text-[#A33900] mb-2">
               <span className="text-xs font-extrabold tracking-widest uppercase flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#A33900]" />
-                SLIDE 05 • PEDAGOGY
+                PEDAGOGY
               </span>
               <Lightbulb className="w-4 h-4 text-[#A33900]" />
             </div>

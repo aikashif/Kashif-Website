@@ -25,7 +25,7 @@ export const SlideSports: React.FC<SlideSportsProps> = ({ onOpenChessModal }) =>
           <div className="flex items-center gap-2 text-[#A33900]">
             <span className="w-2 h-2 rounded-full bg-[#A33900]" />
             <span className="text-xs font-extrabold tracking-widest uppercase">
-              SLIDE 08 • ATHLETICS &amp; RECREATION
+              ATHLETICS &amp; RECREATION
             </span>
           </div>
           <span className="self-start sm:self-auto text-[11px] font-extrabold tracking-widest uppercase px-2 py-0.5 rounded bg-[#FAF2EE] text-[#735733] border border-[#E2BFB2]/40">

@@ -19,7 +19,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'research', label: 'Research Interests' },
     { id: 'articles', label: 'Newspaper Articles' },
     { id: 'media', label: 'Podcasts & Media' },
-    { id: 'sports', label: 'Sports & Pursuits' }
+    { id: 'sports', label: 'Sports & Pursuits' },
+    { id: 'contact', label: 'Contact' }
   ];
 
   const handleLinkClick = (id: string) => {
